@@ -1,0 +1,32 @@
+//MARCELO LEAÑO
+#include <iostream>
+#include <cmath>
+using namespace std;
+void solunica();
+int main()
+{   int a,b,c, det;
+    float x, x1, x2;
+    cout<<"Ingrese el valor de a: ";
+    cin>>a;
+    cout<<"Ingrese el valor de b: ";
+    cin>>b;
+    cout<<"Ingrese el valor de c: ";
+    cin>>c;
+    det = pow(b,2)- (4*a*c);
+    if (a==0){
+        cout<<"El problema no tiene solucion";
+    }else if (det<0){
+        cout<<"El problema tiene solucion imaginaria";
+    }else if (det>0){
+        x1= (-b+ sqrt(det))/(2*a);
+        x2= (-b- sqrt(det))/(2*a);
+        cout<<"La solucion de la ecuacion es: x1= "<<x1<<" y x2= "<<x2;
+    }else if (det==0){
+        x= -b/(2*a);
+        cout<<"La solucion tiene una solucion: x= "<<x;
+    }
+    return 0;
+}
+void solunica(){
+    
+}
