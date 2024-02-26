@@ -1,0 +1,8 @@
+def fibonacci_series(n, a=0, b=1):
+    if n > 0:
+        print(a, end=" ")
+        fibonacci_series(n-1, b, a+b)
+
+num_terminos = int(input("Ingrese el número de términos de la serie Fibonacci: "))
+
+fibonacci_series(num_terminos)
