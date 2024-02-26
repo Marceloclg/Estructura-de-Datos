@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int Palindromo(int num, int inver);
+
+int main() {
+    int num;
+    cout << "Ingrese un numero: ";
+    cin >> num;
+
+    if (Palindromo(num, 0) == num)
+        cout << num << " es un palindromo" << endl;
+    else
+        cout << num << " no es un palindromo" << endl;
+
+    return 0;
+}
+
+int Palindromo(int num, int inver) {
+    if (num == 0)
+        return inver;
+    else
+        inver = (inver * 10) + (num % 10);
+    return Palindromo(num / 10, inver);
+}
