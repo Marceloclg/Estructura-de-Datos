@@ -1,0 +1,107 @@
+#include <iostream>
+#include "Cadenas.h"
+
+using namespace std;
+
+int main() {
+    Cadenas cadenaObj;
+    string input, input2;
+
+    int opcion;
+    do {
+        cout << "Menu:" << endl;
+        cout << "1. Longitud de una cadena" << endl;
+        cout << "2. Comparacion" << endl;
+        cout << "3. Contar vocales" << endl;
+        cout << "4. Sacar un substring" << endl;
+        cout << "5. Intercambiar" << endl;
+        cout << "6. Encontrar caracteres" << endl;
+        cout << "7. Invertir una frase" << endl;
+        cout << "8. Palindromo" << endl;
+        cout << "0. Salir" << endl;
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            cout << "Ingrese una cadena: ";
+            cin.ignore(); // Limpiar el buffer de entrada
+            getline(cin, input);
+            cout << "Longitud de la cadena: " << cadenaObj.get_longitud(input) << endl;
+            break;
+        case 2:
+            cout << "Ingrese la primera cadena: ";
+            cin.ignore(); // Limpiar el buffer de entrada
+            getline(cin, input);
+            cout << "Ingrese la segunda cadena: ";
+            getline(cin, input2);
+            if (cadenaObj.comparacion(input, input2)) {
+                cout << "Las cadenas son iguales." << endl;
+            }
+            else {
+                cout << "Las cadenas son diferentes." << endl;
+            }
+            break;
+        case 3:
+            cout << "Ingrese una cadena: ";
+            cin.ignore(); // Limpiar el buffer de entrada
+            getline(cin, input);
+            cout << "Cantidad de vocales: " << cadenaObj.contar_vocales(input) << endl;
+            break;
+        case 4:
+            cout << "Ingrese una cadena: ";
+            cin.ignore(); // Limpiar el buffer de entrada
+            getline(cin, input);
+            int inicio, longitud;
+            cout << "Ingrese el indice de inicio: ";
+            cin >> inicio;
+            cout << "Ingrese la longitud: ";
+            cin >> longitud;
+            cout << "Substring: " << cadenaObj.sacar_substring(input, inicio, longitud) << endl;
+            break;
+        case 5:
+            cout << "Ingrese la primera cadena: ";
+            cin.ignore(); // Limpiar el buffer de entrada
+            getline(cin, input);
+            cout << "Ingrese la segunda cadena: ";
+            getline(cin, input2);
+            cadenaObj.intercambiar(input, input2);
+            cout << "Cadena 1: " << input << endl;
+            cout << "Cadena 2: " << input2 << endl;
+            break;
+        case 6:
+            cout << "Ingrese una cadena: ";
+            cin.ignore(); // Limpiar el buffer de entrada
+            getline(cin, input);
+            char caracter;
+            cout << "Ingrese el caracter a buscar: ";
+            cin >> caracter;
+            cout << "Cantidad de veces que aparece el caracter: " << cadenaObj.encontrar_caracteres(input, caracter) << endl;
+            break;
+        case 7:
+            cout << "Ingrese una frase: ";
+            cin.ignore(); // Limpiar el buffer de entrada
+            getline(cin, input);
+            cout << "Frase invertida: " << cadenaObj.invertir_frase(input) << endl;
+            break;
+        case 8:
+            cout << "Ingrese una cadena: ";
+            cin.ignore(); // Limpiar el buffer de entrada
+            getline(cin, input);
+            if (cadenaObj.es_palindromo(input)) {
+                cout << "La cadena es un palindromo." << endl;
+            }
+            else {
+                cout << "La cadena no es un palindromo." << endl;
+            }
+            break;
+        case 0:
+            cout << "Saliendo del programa." << endl;
+            break;
+        default:
+            cout << "Opcion invalida. Por favor, ingrese una opcion valida." << endl;
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
